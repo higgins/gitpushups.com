@@ -32,7 +32,7 @@ export default async function LandingPage({
       next: { revalidate: 3600 },
     })
     if (res.ok) {
-      const json = await res.json()
+      const json = await res.json() as any;
       if (typeof json.totalPushups === 'number') {
         totalPushups = json.totalPushups
       }

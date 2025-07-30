@@ -33,7 +33,7 @@ export async function middleware(request: NextRequest) {
           return new NextResponse('false', { status: 200 })
         }
 
-        const data = await res.json()
+        const data = await res.json() as any;
         const didPushups = data?.didPushupsToday === true ? 'true' : 'false'
 
         return new NextResponse(didPushups, {
