@@ -17,7 +17,7 @@ export default async function UserPage({ params, searchParams }: Params) {
   }
   const { user, didPushupsToday, localDate } = status
   return (
-    <main className="flex items-center justify-center p-4 min-h-[calc(100vh-100px)]">
+    <main className="flex items-start justify-center p-4 min-h-[calc(100vh-100px)]">
       <div className="backdrop-blur-md bg-white/30 p-6 rounded-xl text-left space-y-4">
         <img
           src={user.avatarUrl}
