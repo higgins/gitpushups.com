@@ -33,8 +33,8 @@ export default async function LandingPage({
     })
     if (res.ok) {
       const json = await res.json() as any;
-      if (typeof json.totalPushups === 'number') {
-        totalPushups = json.totalPushups
+      if (typeof json.total === 'number') {
+        totalPushups = json.total
       }
     } else {
       console.error('Failed to fetch total pushups', res.statusText)
