@@ -4,6 +4,7 @@ import { GitHook } from '@/components/GitHook'
 import { Buffer } from 'buffer'
 import { Montserrat } from 'next/font/google'
 import { AppStoreBadge } from '@/components/AppStore'
+import { PlayStoreBadge } from '@/components/PlayStore'
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 
@@ -45,48 +46,77 @@ export default async function LandingPage({
 
   return (
     <main className={`mx-auto max-w-[600px] p-4 space-y-6 ${montserrat.className}`} >
-      <div className="flex flex-row items-center">
-        <h1 className="text-4xl lg:text-5xl font-bold">
+      <div className="flex flex-row items-center gap-2">
+        <h1
+          className="
+                     font-bold leading-tight
+                     text-6xl lg:text-7xl
+                     max-[430px]:text-4xl   /* iPhone 14/15/Pro widths */
+                     max-[375px]:text-3xl   /* iPhone SE / 8 size */
+                     "
+        >
           Do pushups...<br />or we'll block your commits.
         </h1>
-        <img className="h-[10rem]" src="/punch.gif" />
+
+        <img
+          src="/punch.gif"
+          className="
+               h-[20rem]             /* default desktop/tablet */
+               shrink-0 w-auto
+               max-[430px]:h-40      /* ~160px on iPhone 14/15 */
+               max-[375px]:h-32      /* ~128px on iPhone SE */
+               "
+          alt="Punching mascot"
+        />
       </div>
       <section id="how-it-works" className="space-y-2">
-        <img className="h-[48px]" src="/howitworks.png" />
+        <h3 className="text-4xl lg:text-5xl max-[430px]:text-3xl max-[375px]:text-2xl font-bold">
+          How it works
+        </h3>
         <ol className="list-decimal list-inside space-y-2">
-          <li className="text-xl font-semibold">
+          <li className="text-xl mb-6">
             Download the app
-            <AppStoreBadge appStoreUrl={"https://testflight.apple.com/join/z6vqttNG"} />
+            <div className="flex flex-row justify-start gap-2">
+              <AppStoreBadge appStoreUrl={"https://apps.apple.com/us/app/git-pushups/id6747657596"} />
+              <PlayStoreBadge appStoreUrl={"https://play.google.com/store/apps/details?id=com.gitpushups.android"} />
+            </div>
           </li>
-          <li className="text-xl font-semibold">
-            Add this rule to your <code>.git/hooks/pre-commit</code>:
+          <li className="text-xl">
+            Add this rule to your <code>.git/hooks/</code> dir:
             <GitHook />
+          </li>
+          <li className="text-xl">
+            Get back to coding! If you don't do pushups everyday, your git-hook will error.
           </li>
         </ol>
       </section>
-      <section id="stats">
-        <img className="h-[48px] mt-8" src="/thestats.png" />
-        <div className="flex flex-row justify-start items-center">
-          <p className="text-xl text-gray-600">
-            Developers like you have done{' '}
-            <span className="font-bold">
+      <section id="stats" className="bg-gradient-to-b from-[#FC803F] to-[#EA1A72] p-5 text-white rounded-xl">
+        <h3 className="text-4xl lg:text-5xl font-bold text-black italic mb-0 pb-0">
+          The Stats
+        </h3>
+        <div className="flex flex-row justify-start items-start">
+          <p className="text-xl">
+            Developers like you have done...{' '}<br />
+            <span className="text-5xl font-bold">
               {typeof totalPushups === 'number'
                 ? totalPushups.toLocaleString()
                 : totalPushups}{' '}
               pushups
-            </span>
+            </span><br />
             ...and counting!
           </p>
-          <img className="h-24" src="/oneHanded.gif" />
+          <img className="h-36" src="/oneHanded.gif" />
         </div>
       </section>
       <section id="faq">
-        <img className="h-[48px]" src="/faq.png" />
+        <h3 className="text-4xl lg:text-5xl font-bold">
+          FAQ
+        </h3>
         <div className="divide-y">
           <AccordionItem title="Wait...what?">This is a habit stacking tool. You are already coding, add this to your routine and you'll get stronger.</AccordionItem>
           <AccordionItem title="Why pushups?">You can do them anywhere, with no equipment and they are great for you.</AccordionItem>
           <AccordionItem title="Is it free?">Yep. You can help make sure it stays around by paying for the Pro version.</AccordionItem>
-          <AccordionItem title="What's in the Pro version?">Daily goals and a contribution graph.</AccordionItem>
+          <AccordionItem title="What's in the Pro version?">Daily goals and a contribution graph. iOS users can also sync their workouts to Apple Health.</AccordionItem>
           <AccordionItem title="Help! I got too swol!">No such thing.</AccordionItem>
           <AccordionItem title="What if I already have a workout routine?">
             <>

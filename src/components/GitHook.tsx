@@ -32,7 +32,7 @@ fi`
   }
 
   return (
-    <Card className="mt-2 mb-4 relative p-4 bg-black text-[#73BFB8]">
+    <Card className="mt-2 mb-4 relative p-4 bg-black text-[#fdf6ed] font-thin">
       <Button
         onClick={handleCopy}
         variant="ghost"

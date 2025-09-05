@@ -1,14 +1,12 @@
-import React from 'react';
-
-type AppStoreBadgeProps = {
+type PlayStoreBadgeProps = {
   appStoreUrl: string;
   alt?: string;
   width?: number;
 };
 
-export const AppStoreBadge: React.FC<AppStoreBadgeProps> = ({
+export const PlayStoreBadge: React.FC<PlayStoreBadgeProps> = ({
   appStoreUrl,
-  alt = 'Download on the App Store',
+  alt = 'Download on Google Play',
 }) => {
   return (
     <a
@@ -18,7 +16,7 @@ export const AppStoreBadge: React.FC<AppStoreBadgeProps> = ({
       aria-label={alt}
     >
       <img
-        src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
+        src="/googlePlayBadge.png"
         alt={alt}
         style={{ height: '48px', marginTop: '10px' }}
       />
