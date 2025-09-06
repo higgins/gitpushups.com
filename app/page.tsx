@@ -133,7 +133,28 @@ export default async function LandingPage({
           >
             Open the mobile app, view your profile and click the "delete my account" button. This cannot be undone, you'll lose the memories...but not those gains.
           </AccordionItem>
-          <AccordionItem title="Who made this?">Hi, I'm <a className="font-bold" target="_blank" href="https://x.com/justinprojects">Justin</a> and love making fun products.</AccordionItem>
+          <AccordionItem title="Who made this?">
+            <>
+              Hi, I'm <a className="font-bold" target="_blank" href="https://encapsulate.me">Justin</a> and love making fun products.
+              <div className="flex items-center gap-2 mt-2">
+                <a href="https://github.com/higgins" target="_blank" aria-label="GitHub">
+                  <img src="https://cdn.simpleicons.org/github/000000" alt="" className="h-5 w-5" />
+                </a>
+                <a href="https://x.com/justinprojects" target="_blank" aria-label="X">
+                  <img src="https://cdn.simpleicons.org/x/000000" alt="" className="h-5 w-5" />
+                </a>
+                <a href="https://bsky.app/profile/justinprojects.bsky.social" target="_blank" aria-label="Bluesky">
+                  <img src="https://cdn.simpleicons.org/bluesky/000000" alt="" className="h-5 w-5" />
+                </a>
+                <a href="mailto:justinhiggy@gmail.com" aria-label="Email">
+                  <img src="https://cdn.simpleicons.org/gmail/000000" alt="" className="h-5 w-5" />
+                </a>
+                <a href="https://www.tiktok.com/@justinprojects" target="_blank" aria-label="TikTok">
+                  <img src="https://cdn.simpleicons.org/tiktok/000000" alt="" className="h-5 w-5" />
+                </a>
+              </div>
+            </>
+          </AccordionItem>
         </div>
       </section>
     </main >
