@@ -5,7 +5,6 @@ import { Buffer } from 'buffer'
 import { Montserrat } from 'next/font/google'
 import { AppStoreBadge } from '@/components/AppStore'
 import { PlayStoreBadge } from '@/components/PlayStore'
-import { Github, Twitter, Linkedin, Mail, Tiktok } from 'lucide-react'
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 
@@ -139,24 +138,22 @@ export default async function LandingPage({
               Hi, I'm <a className="font-bold" target="_blank" href="https://encapsulate.me">Justin</a> and love making fun products.
               <div className="flex items-center gap-2 mt-2">
                 <a href="https://github.com/justinprojects" target="_blank" aria-label="GitHub">
-                  <Github className="h-5 w-5" />
+                  <img src="https://cdn.simpleicons.org/github" alt="" className="h-5 w-5" />
                 </a>
                 <a href="https://x.com/justinprojects" target="_blank" aria-label="X">
-                  <Twitter className="h-5 w-5" />
+                  <img src="https://cdn.simpleicons.org/x" alt="" className="h-5 w-5" />
                 </a>
                 <a href="https://bsky.app/profile/justinprojects.bsky.social" target="_blank" aria-label="Bluesky">
-                  <svg className="h-5 w-5" viewBox="0 0 576 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M376.32 0c-67.15 52.4-88.37 95-88.37 95S266.43 52.4 199.28 0C74.68 0 0 89 0 180.38c0 37.49 13.8 69.24 40.85 95.42C138.1 373.7 238 471.23 288 512c50-40.77 149.9-138.3 247.15-236.2C562.2 249.62 576 217.87 576 180.38 576 89 501.32 0 376.72 0Z" />
-                  </svg>
+                  <img src="https://cdn.simpleicons.org/bluesky" alt="" className="h-5 w-5" />
                 </a>
                 <a href="https://www.linkedin.com/in/justinprojects" target="_blank" aria-label="LinkedIn">
-                  <Linkedin className="h-5 w-5" />
+                  <img src="https://cdn.simpleicons.org/linkedin" alt="" className="h-5 w-5" />
                 </a>
                 <a href="mailto:justinhiggy@gmail.com" aria-label="Email">
-                  <Mail className="h-5 w-5" />
+                  <img src="https://cdn.simpleicons.org/gmail" alt="" className="h-5 w-5" />
                 </a>
                 <a href="https://www.tiktok.com/@justinprojects" target="_blank" aria-label="TikTok">
-                  <Tiktok className="h-5 w-5" />
+                  <img src="https://cdn.simpleicons.org/tiktok" alt="" className="h-5 w-5" />
                 </a>
               </div>
             </>
