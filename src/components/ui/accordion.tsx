@@ -5,12 +5,13 @@ import { cn } from '@/lib/utils'
 type AccordionItemProps = {
   title: string
   children: React.ReactNode
+  id?: string
 }
 
-export function AccordionItem({ title, children }: AccordionItemProps) {
+export function AccordionItem({ title, children, id }: AccordionItemProps) {
   const [open, setOpen] = React.useState(true)
   return (
-    <div className="border-b">
+    <div id={id} className="border-b">
       <button
         type="button"
         onClick={() => setOpen(!open)}

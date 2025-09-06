@@ -128,6 +128,12 @@ export default async function LandingPage({
             </>
           </AccordionItem>
           <AccordionItem title="Who made this?">Hi, I'm <a className="font-bold" target="_blank" href="https://x.com/justinprojects">Justin</a> and love making fun products.</AccordionItem>
+          <AccordionItem
+            id="how-to-delete-my-account"
+            title="How do I delete my account?"
+          >
+            In order to delete your account, open the mobile app, view your profile and click the "delete my account" button.
+          </AccordionItem>
         </div>
       </section>
     </main >
