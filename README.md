@@ -1,49 +1,7 @@
 ![Total Reps](https://gitpushups.com/pushupsBadge.svg)
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Cloudflare Workers
-
-This project is configured to deploy using [Cloudflare Workers](https://developers.cloudflare.com/workers/). After building with `npm run build`,
-the generated files in `.vercel/output` are served by a worker via `wrangler`.
-
-To preview locally run:
-
-```bash
-npm start
-```
-
-Deployments can be triggered with:
-
-```bash
-wrangler deploy
-```
-
-See the [Cloudflare Workers documentation](https://developers.cloudflare.com/workers/) for full details.
+## License
+This project is licensed under the MIT Non-Commercial License (MIT-NC).
+You may use, copy, and modify the code for personal or educational purposes,
+but **commercial use is prohibited** without prior written permission.
+See [LICENSE](./LICENSE) for full terms.
