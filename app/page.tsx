@@ -49,10 +49,9 @@ export default async function LandingPage({
       <div className="flex flex-row items-center gap-2">
         <h1
           className="
-                     font-bold leading-tight
-                     text-6xl lg:text-7xl
+                     font-bold
+                     text-6xl
                      max-[430px]:text-4xl   /* iPhone 14/15/Pro widths */
-                     max-[375px]:text-3xl   /* iPhone SE / 8 size */
                      "
         >
           Do pushups...<br />or we'll block your commits.
@@ -64,13 +63,12 @@ export default async function LandingPage({
                h-[20rem]             /* default desktop/tablet */
                shrink-0 w-auto
                max-[430px]:h-40      /* ~160px on iPhone 14/15 */
-               max-[375px]:h-32      /* ~128px on iPhone SE */
                "
           alt="Punching mascot"
         />
       </div>
       <section id="how-it-works" className="space-y-2">
-        <h3 className="text-4xl lg:text-5xl max-[430px]:text-3xl max-[375px]:text-2xl font-bold">
+        <h3 className="text-3xl max-[375px]:text-2xl font-bold mt-10">
           How it works
         </h3>
         <ol className="list-decimal list-inside space-y-2">
@@ -91,7 +89,7 @@ export default async function LandingPage({
         </ol>
       </section>
       <section id="stats" className="bg-gradient-to-b from-[#FC803F] to-[#EA1A72] p-5 text-white rounded-xl">
-        <h3 className="text-4xl lg:text-5xl font-bold text-black italic mb-0 pb-0">
+        <h3 className="text-3xl font-bold text-black italic mb-0 pb-0">
           The Stats
         </h3>
         <div className="flex flex-row justify-start items-start">
