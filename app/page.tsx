@@ -137,23 +137,20 @@ export default async function LandingPage({
             <>
               Hi, I'm <a className="font-bold" target="_blank" href="https://encapsulate.me">Justin</a> and love making fun products.
               <div className="flex items-center gap-2 mt-2">
-                <a href="https://github.com/justinprojects" target="_blank" aria-label="GitHub">
-                  <img src="https://cdn.simpleicons.org/github" alt="" className="h-5 w-5" />
+                <a href="https://github.com/higgins" target="_blank" aria-label="GitHub">
+                  <img src="https://cdn.simpleicons.org/github/000000" alt="" className="h-5 w-5" />
                 </a>
                 <a href="https://x.com/justinprojects" target="_blank" aria-label="X">
-                  <img src="https://cdn.simpleicons.org/x" alt="" className="h-5 w-5" />
+                  <img src="https://cdn.simpleicons.org/x/000000" alt="" className="h-5 w-5" />
                 </a>
                 <a href="https://bsky.app/profile/justinprojects.bsky.social" target="_blank" aria-label="Bluesky">
-                  <img src="https://cdn.simpleicons.org/bluesky" alt="" className="h-5 w-5" />
-                </a>
-                <a href="https://www.linkedin.com/in/justinprojects" target="_blank" aria-label="LinkedIn">
-                  <img src="https://cdn.simpleicons.org/linkedin" alt="" className="h-5 w-5" />
+                  <img src="https://cdn.simpleicons.org/bluesky/000000" alt="" className="h-5 w-5" />
                 </a>
                 <a href="mailto:justinhiggy@gmail.com" aria-label="Email">
-                  <img src="https://cdn.simpleicons.org/gmail" alt="" className="h-5 w-5" />
+                  <img src="https://cdn.simpleicons.org/gmail/000000" alt="" className="h-5 w-5" />
                 </a>
                 <a href="https://www.tiktok.com/@justinprojects" target="_blank" aria-label="TikTok">
-                  <img src="https://cdn.simpleicons.org/tiktok" alt="" className="h-5 w-5" />
+                  <img src="https://cdn.simpleicons.org/tiktok/000000" alt="" className="h-5 w-5" />
                 </a>
               </div>
             </>
