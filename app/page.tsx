@@ -127,13 +127,13 @@ export default async function LandingPage({
               <span>The technique is based on <a className="font-bold" target="_blank" href="https://www.reddit.com/r/bodyweightfitness/comments/9zrpga/grease_the_groove_is_truly_a_miracle/">"greasing the groove"</a>: practice good form, frequently, at submaximal intensity to build neuromuscular efficiency.</span>
             </>
           </AccordionItem>
-          <AccordionItem title="Who made this?">Hi, I'm <a className="font-bold" target="_blank" href="https://x.com/justinprojects">Justin</a> and love making fun products.</AccordionItem>
           <AccordionItem
             id="how-to-delete-my-account"
             title="How do I delete my account?"
           >
-            In order to delete your account, open the mobile app, view your profile and click the "delete my account" button.
+            Open the mobile app, view your profile and click the "delete my account" button. This cannot be undone, you'll lose the memories...but not those gains.
           </AccordionItem>
+          <AccordionItem title="Who made this?">Hi, I'm <a className="font-bold" target="_blank" href="https://x.com/justinprojects">Justin</a> and love making fun products.</AccordionItem>
         </div>
       </section>
     </main >
