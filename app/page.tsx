@@ -129,8 +129,8 @@ export default async function LandingPage({
           </AccordionItem>
           <AccordionItem title="I have a feature request!">
             <>
-              <div>I'd like to keep this project simple. Simle is good.</div><br />
-              <div>That being said, if you have an idea that you think makes the service better, I'm all ears!</div><br /><div>Hit me up on any channel you find me at or create an issue on the <a className="font-bold" href="https://github.com/higgins/gitpushups.com" target="_blank">github repo</a>. I prioritize feature requests from PRO users.</div>
+              <div>I'd like to keep this project simple. Simple is good.</div><br />
+              <div>That being said, if you have an idea you think makes the service better, I'm all ears!</div><br /><div>Hit me up on any channel you find me at or create an issue on the <a className="font-bold" href="https://github.com/higgins/gitpushups.com" target="_blank">github repo</a>. I prioritize feature requests from PRO users.</div>
             </>
           </AccordionItem>
           <AccordionItem title="I found a bug!">
@@ -142,7 +142,10 @@ export default async function LandingPage({
             id="how-to-delete-my-account"
             title="How do I delete my account?"
           >
-            Open the mobile app, view your profile and click the "delete my account" button. This cannot be undone, you'll lose the memories...but not those gains.
+            <>
+              <div>Open the mobile app, view your profile and click the "delete my account" button. This cannot be undone.</div><br />
+              <div>You'll lose the memories...but those gains are yours forever.</div>
+            </>
           </AccordionItem>
           <AccordionItem title="Who made this?">
             <>
