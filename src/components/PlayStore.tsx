@@ -1,7 +1,6 @@
 type PlayStoreBadgeProps = {
   appStoreUrl: string;
   alt?: string;
-  width?: number;
 };
 
 export const PlayStoreBadge: React.FC<PlayStoreBadgeProps> = ({

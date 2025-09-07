@@ -3,7 +3,6 @@ import React from 'react';
 type AppStoreBadgeProps = {
   appStoreUrl: string;
   alt?: string;
-  width?: number;
 };
 
 export const AppStoreBadge: React.FC<AppStoreBadgeProps> = ({
