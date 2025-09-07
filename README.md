@@ -1,4 +1,4 @@
-![Total Reps](https://gitpushups.com/pushupsBadge.svg)
+![Total Reps](https://gitpushups.com/pushupsBadge.svg?cachebust=09062025)
 
 ## License
 This project is licensed under the MIT Non-Commercial License (MIT-NC).
