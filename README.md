@@ -44,9 +44,9 @@ fi
 
 I welcome community input!
 
-If you have bug fix for this site's content, you can [open a bug report](issues/new?template=bug_report.md) or submit a Pull Request.
+If you have bug fix for this site's content, you can [open a bug report](https://github.com/higgins/gitpushups.com/issues/new?template=bug_report.md) or submit a Pull Request.
 
-If you have a feature request, you can DM me on any channel you find me at or [open an issue](issues/new?template=feature_request.md). I don't promise I'll build every requested feature as I'd like this tool to remain simple and valuable to its users. That being said, PRO users' feature requests will be prioritzed
+If you have a feature request, you can DM me on any channel you find me at or [open an issue](https://github.com/higgins/gitpushups.com/issues/new?template=feature_request.md). I don't promise I'll build every requested feature as I'd like this tool to remain simple and valuable to its users. That being said, PRO users' feature requests will be prioritzed
 
 **NOTE:** the native client code is not open sourced but you can open bug reports for them nonetheless.
 
