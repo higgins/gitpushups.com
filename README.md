@@ -10,10 +10,10 @@
 
    <p>
      <a href="https://apps.apple.com/us/app/git-pushups/id6747657596">
-       <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" height="60"/>
+       <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" style="height:40px; width:auto;" />
      </a>
      <a href="https://play.google.com/store/apps/details?id=com.gitpushups.android">
-       <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" height="60"/>
+       <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" style="height:40px; width:auto;" />
      </a>
    </p>
 
