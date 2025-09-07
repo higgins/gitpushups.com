@@ -14,15 +14,6 @@ export interface LeaderboardData {
   }>
 }
 
-export interface UserProfile {
-  id: string
-  login: string
-  avatarUrl: string
-  totalReps: number
-  team?: string
-  createdAt: string
-}
-
 export interface UserStatus {
   user: {
     username: string
@@ -53,26 +44,6 @@ export async function getLeaderboard(): Promise<LeaderboardData | null> {
     return await response.json()
   } catch (error) {
     console.error('Error fetching leaderboard:', error)
-    return null
-  }
-}
-
-export async function getUserProfile(username: string): Promise<UserProfile | null> {
-  try {
-    const response = await fetch(`${API_BASE_URL}/user/${username}`, {
-      next: { revalidate: 60 } // Revalidate every minute
-    })
-
-    if (!response.ok) {
-      if (response.status === 404) {
-        return null
-      }
-      throw new Error('Failed to fetch user profile')
-    }
-
-    return await response.json()
-  } catch (error) {
-    console.error('Error fetching user profile:', error)
     return null
   }
 }
