@@ -127,6 +127,17 @@ export default async function LandingPage({
               <span>The technique is based on <a className="font-bold" target="_blank" href="https://www.reddit.com/r/bodyweightfitness/comments/9zrpga/grease_the_groove_is_truly_a_miracle/">"greasing the groove"</a>: practice good form, frequently, at submaximal intensity to build neuromuscular efficiency.</span>
             </>
           </AccordionItem>
+          <AccordionItem title="I have a feature request!">
+            <>
+              <div>I'd like to keep this project simple. Simle is good.</div><br />
+              <div>That being said, if you have an idea that you think makes the service better, I'm all ears!</div><br /><div>Hit me up on any channel you find me at or create an issue on the <a className="font-bold" href="https://github.com/higgins/gitpushups.com" target="_blank">github repo</a>. I prioritize feature requests from PRO users.</div>
+            </>
+          </AccordionItem>
+          <AccordionItem title="I found a bug!">
+            <>
+              <span>Oops! Create an issue on the <a className="font-bold" href="https://github.com/higgins/gitpushups.com" target="_blank">github repo</a> or send me a DM.</span>
+            </>
+          </AccordionItem>
           <AccordionItem
             id="how-to-delete-my-account"
             title="How do I delete my account?"
