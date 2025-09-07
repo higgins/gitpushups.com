@@ -7,10 +7,18 @@
 ## How it works
 
 1. **Download the app**
-   [![Download on the App Store](https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg)](https://apps.apple.com/us/app/git-pushups/id6747657596)
-   [![Get it on Google Play](https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg)](https://play.google.com/store/apps/details?id=com.gitpushups.android)
+
+   <p>
+     <a href="https://apps.apple.com/us/app/git-pushups/id6747657596">
+       <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" height="60"/>
+     </a>
+     <a href="https://play.google.com/store/apps/details?id=com.gitpushups.android">
+       <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" height="60"/>
+     </a>
+   </p>
 
 2. **Install the Git hook**
+
    You can block your commits on any github user's gitpushup activity. Simply reference their github username in your git-hook.
    For example, to block on [@higgins](https://github.com/higgins) daily pushup activity:
 
