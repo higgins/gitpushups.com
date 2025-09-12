@@ -9,6 +9,25 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: "Git Pushups: do pushups or we block your code",
   description: 'A fitness tool for developers',
+  openGraph: {
+    images: [
+      {
+        url: 'https://gitpushups.com/ogUnfurl.png',
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: [
+      {
+        url: 'https://gitpushups.com/twitterUnfurl.png',
+        width: 1200,
+        height: 675,
+      },
+    ],
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
