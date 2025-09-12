@@ -33,19 +33,20 @@ fi`
 
   return (
     <Card className="mt-2 mb-4 relative p-4 bg-black text-[#fdf6ed] font-thin">
-      <Button
-        onClick={handleCopy}
-        variant="ghost"
-        size="icon"
-        className="absolute top-2 right-2"
-      >
-        {copied ? <Check className="h-4 w-4 text-green-500" /> : <ClipboardCopy className="h-4 w-4" />}
-        <span className="sr-only">Copy code</span>
-      </Button>
-
       <ScrollArea className="max-h-64">
         <pre className="text-sm font-mono whitespace-pre-wrap">{CODE}</pre>
       </ScrollArea>
+
+      <Button
+        onClick={handleCopy}
+        size="icon"
+        className="absolute top-2 right-2 z-20 flex cursor-pointer [&_svg]:pointer-events-none"
+      >
+        {copied
+          ? <Check className="h-4 w-4 text-green-500" />
+          : <ClipboardCopy className="h-4 w-4" />}
+        <span className="sr-only">Copy code</span>
+      </Button>
     </Card>
   )
 }
