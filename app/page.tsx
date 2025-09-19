@@ -82,6 +82,17 @@ export default async function LandingPage({
           <li className="text-xl">
             Add this rule to your <code>.git/hooks/</code> dir:
             <GitHook />
+            <p className="mt-4">
+              Or configure{' '}
+              <a
+                className="font-bold underline"
+                href="https://github.com/higgins/gitpushups.com/tree/main/pushups-action"
+                target="_blank"
+              >
+                this GitHub Action
+              </a>{' '}
+              to block your pull requests until you get your reps in.
+            </p>
           </li>
           <li className="text-xl">
             Get back to coding! If you don't do pushups everyday, your git-hook will error.
