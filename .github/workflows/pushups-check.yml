@@ -1,0 +1,9 @@
+name: Pushup Check
+on: [pull_request]
+
+jobs:
+  pushups:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: higgins/gitpushups.com/pushups-action@main
