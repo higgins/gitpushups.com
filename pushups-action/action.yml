@@ -1,0 +1,18 @@
+name: 'Check Git Pushups'
+description: 'Fails if the pull request author has not completed their daily pushups.'
+author: 'GitPushups'
+runs:
+  using: 'composite'
+  steps:
+    - name: Verify pushups
+      shell: bash
+      run: |
+        AUTHOR="${{ github.event.pull_request.user.login }}"
+        echo "Checking pushups for $AUTHOR"
+        TODAY=$(date -u +%F)
+        RESULT=$(curl -fsSL "https://api.gitpushups.com/user/${AUTHOR}?local_date=${TODAY}" | jq -r '.didPushupsToday')
+        if [[ "$RESULT" != "true" ]]; then
+          echo "::error::$AUTHOR has not done pushups for $TODAY"
+          exit 1
+        fi
+        echo "$AUTHOR has completed their pushups for $TODAY"
