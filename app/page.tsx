@@ -1,4 +1,3 @@
-import { getLeaderboard } from '@/lib/api'
 import { AccordionItem } from '@/components/ui/accordion'
 import { GitHook } from '@/components/GitHook'
 import { Buffer } from 'buffer'
@@ -27,7 +26,6 @@ export default async function LandingPage({
     }
   }
 
-  const data = await getLeaderboard()
   let totalPushups: number | string = 'thousands of'
   try {
     const res = await fetch('https://api.gitpushups.com/totalPushups', {
