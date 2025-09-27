@@ -91,10 +91,10 @@ export default async function LandingPage({
         <h3 className="text-3xl font-bold text-black italic mb-0 pb-0">
           The Stats
         </h3>
-        <div className="flex flex-row justify-start items-start">
-          <p className="text-xl">
+        <div className="flex flex-col sm:flex-row justify-start items-center sm:items-start gap-4">
+          <p className="text-lg sm:text-xl text-center sm:text-left">
             Developers like you have done...{' '}<br />
-            <span className="text-5xl font-bold">
+            <span className="text-4xl sm:text-5xl font-bold">
               {typeof totalPushups === 'number'
                 ? totalPushups.toLocaleString()
                 : totalPushups}{' '}
@@ -102,7 +102,7 @@ export default async function LandingPage({
             </span><br />
             ...and counting!
           </p>
-          <img className="h-36" src="/oneHanded.gif" />
+          <img className="h-32 sm:h-36 w-auto max-w-full" src="/oneHanded.gif" />
         </div>
       </section>
       <section id="faq">
