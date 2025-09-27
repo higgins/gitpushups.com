@@ -11,7 +11,9 @@ body {
   color: #24292f;
 }
 
-
+#who-made-this {
+  margin-bottom: 50px;
+}
 
 @layer base {
   :root {
@@ -77,5 +79,14 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@media (max-width: 480px) {
+  .ph-floating {
+    max-width: 50% !important;
+  }
+  .ph-timer {
+    display: none !important;
   }
 }

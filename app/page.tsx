@@ -146,7 +146,7 @@ export default async function LandingPage({
               <div>You'll lose the memories...but those gains are yours forever.</div>
             </>
           </AccordionItem>
-          <AccordionItem title="Who made this?">
+          <AccordionItem title="Who made this?" id="who-made-this">
             <>
               Hi, I'm <a className="font-bold" target="_blank" href="https://encapsulate.me">Justin</a> and love making fun products.
               <div className="flex items-center gap-2 mt-2">
