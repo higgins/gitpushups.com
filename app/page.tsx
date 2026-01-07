@@ -4,7 +4,6 @@ import { Buffer } from 'buffer'
 import { Montserrat } from 'next/font/google'
 import { AppStoreBadge } from '@/components/AppStore'
 import { PlayStoreBadge } from '@/components/PlayStore'
-import { ProductHunt } from '@/components/ProductHunt'
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 
@@ -170,7 +169,6 @@ export default async function LandingPage({
           </AccordionItem>
         </div>
       </section>
-      <ProductHunt />
     </main >
   )
 }
