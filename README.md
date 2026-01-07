@@ -34,7 +34,11 @@ else
 fi
 ```
 
-  Obviously, you're encouraged to block on your own pushups...but it can be fun to do with your coworkers too.
+ Obviously, you're encouraged to block on your own pushups...but it can be fun to do with your coworkers too.
+
+### Or you can configure this GitHub Action to block your Pull Requests
+
+Configure [this GitHub Action](https://github.com/higgins/gitpushups.com/tree/main/pushups-action) to ensure your pull requests are blocked until your pushups are done.
 
 3. **Do pushups or your git hook will fail**
 
