@@ -111,8 +111,8 @@ export default async function LandingPage({
         <div className="divide-y">
           <AccordionItem title="Wait...what?">This is a habit stacking tool. You are already coding, add this to your routine and you'll get stronger.</AccordionItem>
           <AccordionItem title="Why pushups?">You can do them anywhere, with no equipment and they are great for you.</AccordionItem>
-          <AccordionItem title="Is it free?">Yep. You can help make sure it stays around by paying for the Pro version.</AccordionItem>
-          <AccordionItem title="What's in the Pro version?">Daily goals and a contribution graph. iOS users can also sync their workouts to Apple Health.</AccordionItem>
+          <AccordionItem title="Is it free?">Yes. All features are free, with no subscription required.</AccordionItem>
+          <AccordionItem title="What's included?">Daily goals and a contribution graph. iOS users can also sync their workouts to Apple Health. These features are available to everyone.</AccordionItem>
           <AccordionItem title="Help! I got too swol!">No such thing.</AccordionItem>
           <AccordionItem title="What if I already have a workout routine?">
             <>
@@ -128,7 +128,7 @@ export default async function LandingPage({
           <AccordionItem title="I have a feature request!">
             <>
               <div>I'd like to keep this project simple. Simple is good.</div><br />
-              <div>That being said, if you have an idea you think makes the service better, I'm all ears!</div><br /><div>Hit me up on any channel you find me at or create an issue on the <a className="font-bold" href="https://github.com/higgins/gitpushups.com" target="_blank">github repo</a>. I prioritize feature requests from PRO users.</div>
+              <div>That being said, if you have an idea you think makes the service better, I'm all ears!</div><br /><div>Hit me up on any channel you find me at or create an issue on the <a className="font-bold" href="https://github.com/higgins/gitpushups.com" target="_blank">github repo</a>.</div>
             </>
           </AccordionItem>
           <AccordionItem title="I found a bug!">
