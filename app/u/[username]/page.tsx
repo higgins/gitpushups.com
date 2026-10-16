@@ -1,5 +1,9 @@
 import { getUserStatus } from '@/lib/api'
-import { GitHook } from '@/components/GitHook'
+import { InstallationTabs } from '@/components/landing/InstallationSection'
+import { ContributionsGraph } from '@/components/profile/ContributionsGraph'
+import { getCurrentWebUser } from '@/lib/current-web-user'
+import { getUserContributions } from '@/lib/user-contributions'
+import { PUSHUP_FREQUENCIES } from '@/lib/installation'
 import { notFound } from 'next/navigation'
 interface Params {
   params: {
@@ -11,38 +15,27 @@ export const dynamic = 'force-dynamic'
 
 export default async function UserPage({ params, searchParams }: Params) {
   const d = typeof searchParams.d === 'string' ? searchParams.d : undefined
-  const status = await getUserStatus(params.username, d)
+  const [status, session] = await Promise.all([getUserStatus(params.username, d), getCurrentWebUser()])
   if (!status) {
     notFound()
   }
   const { user, didPushupsToday, localDate } = status
+  const today = localDate || new Date().toISOString().slice(0, 10)
+  const year = Number(today.slice(0, 4))
+  const contributions = await getUserContributions(user.username, year)
   return (
-    <main className="flex items-start justify-center p-4 min-h-[calc(100vh-100px)]">
-      <div className="backdrop-blur-md bg-white/30 p-6 rounded-xl text-left space-y-4">
-        <img
-          src={user.avatarUrl}
-          alt={user.username}
-          width={96}
-          height={96}
-          className="rounded-full mx-auto"
-        />
-        {localDate && (
-          <p className="text-center font-semibold">{localDate}</p>
-        )}
-        <p className="font-bold text-lg">
-          @{user.username}{' '}
-          {didPushupsToday ? (
-            <><span className="text-green-600">DID pushups today</span> and can continue coding.</>
-          ) : (
-            <><span className="text-red-600">DID NOT do pushups today</span> and should not be behind the keyboard.</>
-          )}
-        </p>
-        <p>Block your commits based on their pushups by installing this git-hook</p>
-        {/* GitHook component will show instructions */}
-        <div className="text-left">
-          <GitHook username={user.username} />
-        </div>
+    <main className="profile-page page-container">
+      <div className="profile-overview">
+        <header className="profile-heading">
+          <img className="profile-avatar" src={user.avatarUrl} alt="" width={64} height={64} />
+          <div><h1 className="page-heading"><a href={`https://github.com/${user.username}`} target="_blank" rel="noopener noreferrer" aria-label={`@${user.username} on GitHub (opens in a new tab)`}>@{user.username}</a></h1><p className="profile-subtitle">{didPushupsToday ? <>has done pushups today <span aria-hidden="true">✅</span></> : <>has not done pushups today <span aria-hidden="true">❌</span></>}</p></div>
+        </header>
+        {contributions ? <ContributionsGraph year={year} contributions={contributions} today={today} /> : <p className="profile-contributions-error">Contribution history couldn’t load. Please refresh to try again.</p>}
       </div>
+      <section className="profile-setup" aria-labelledby="profile-setup-title">
+        <div><h2 className="page-heading" id="profile-setup-title">Build your own<br />pushup habit.</h2><p className="section-intro">Add a few reps to your coding routine. Set up your own daily check with your agent or a Git hook.</p></div>
+        <InstallationTabs frequency={PUSHUP_FREQUENCIES[0]} username={session.user?.login} />
+      </section>
     </main>
   )
 }

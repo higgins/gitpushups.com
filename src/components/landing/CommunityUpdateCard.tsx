@@ -8,7 +8,7 @@ export interface CommunityUpdate {
 
 export function CommunityUpdateCard({ update }: { update?: CommunityUpdate }) {
   // Until a post is published, keep the placeholder linked to the existing blog.
-  return <Link className="community-update-card" href={update?.href ?? '/blog'}>
+  return <Link className="community-update-card" href={update?.href ?? '/monthly-press'}>
     <div className="community-update-image" aria-hidden="true" />
     <div className="community-update-copy">
       <p className="community-update-label">Latest community update</p>

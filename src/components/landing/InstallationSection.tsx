@@ -6,6 +6,7 @@ import { Terminal } from 'lucide-react'
 import { createAgentPrompt, createGitHook, PUSHUP_FREQUENCIES, type PushupFrequency } from '@/lib/installation'
 import { CopyButton } from './CopyButton'
 import { PushupFrequencyDemo } from './PushupFrequencyDemo'
+import { useTraining } from './TrainingContext'
 
 export function AgentInstallPrompt({ frequency, username }: { frequency: PushupFrequency; username?: string }) {
   const prompt = createAgentPrompt(frequency, username)
@@ -82,14 +83,14 @@ export function InstallationTabs({ frequency, username }: { frequency: PushupFre
 }
 
 export function InstallationSection({ username }: { username?: string }) {
-  const [frequency, setFrequency] = useState<PushupFrequency>(PUSHUP_FREQUENCIES[0])
+  const { frequency, setFrequency, user } = useTraining()
   return <section id="install" className="installation-section section-divider" aria-labelledby="install-title">
     <div className="installation-copy">
       <div className="installation-heading">
         <h2 id="install-title" className="page-heading">Configure your training</h2>
         <p className="section-intro">Choose how often you want to do pushups</p>
       </div>
-      <InstallationTabs frequency={frequency} username={username} />
+      <InstallationTabs frequency={frequency} username={username || user?.login} />
     </div>
     <PushupFrequencyDemo frequency={frequency} onChange={setFrequency} />
   </section>

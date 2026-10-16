@@ -28,7 +28,7 @@ test('browser OAuth round trip uses state, PKCE and secure cookies without expos
   assert.equal(authorize.searchParams.get('code_challenge'), createHash('sha256').update(flow.verifier).digest('base64url'));
   assert.equal(authorize.searchParams.get('state'), flow.state);
   const response = await auth.finishLogin(req(`/auth/callback?code=code123&state=${flow.state}`, flowCookie));
-  assert.equal(response.headers.get('location'), 'https://gitpushups.com/account');
+  assert.equal(response.headers.get('location'), 'https://gitpushups.com/?welcome=1&frequency=daily');
   assert.equal(response.headers.get('cache-control'), 'no-store');
   assert.equal(response.headers.get('referrer-policy'), 'no-referrer');
   const session = response.cookies.get(auth.SESSION_COOKIE);
@@ -50,7 +50,7 @@ test('missing, mismatched and expired state cannot reach token exchange', async 
     [flow.state, 'not-json'],
   ]) {
     const response = await auth.finishLogin(req(`/auth/callback?code=x&state=${state}`, cookie));
-    assert.match(response.headers.get('location'), /\/signup\?error=/);
+    assert.match(response.headers.get('location'), /\/\?signin=/);
     assert.equal(response.cookies.get(auth.SESSION_COOKIE), undefined);
   }
   assert.equal(network.mock.callCount(), 0);
@@ -58,7 +58,7 @@ test('missing, mismatched and expired state cannot reach token exchange', async 
 
 test('origin mismatch and failed exchanges never create a session; logout requires same origin', async t => {
   const network = t.mock.method(globalThis, 'fetch', async () => Response.json(settings));
-  assert.match((await auth.startLogin(new NextRequest('https://attacker.example/auth/login'))).headers.get('location'), /error=configuration/);
+  assert.match((await auth.startLogin(new NextRequest('https://attacker.example/auth/login'))).headers.get('location'), /signin=configuration/);
   network.mock.restore();
   t.mock.method(globalThis, 'fetch', async (_, options) => options?.method === 'POST' ? new Response('Unauthorized', { status: 401 }) : Response.json(settings));
   const flow = { state: 'a'.repeat(43), verifier: 'b'.repeat(43), createdAt: Date.now() };
@@ -68,4 +68,21 @@ test('origin mismatch and failed exchanges never create a session; logout requir
   assert.equal(rejected.status, 403);
   const logout = await auth.signOut(new NextRequest('https://gitpushups.com/auth/logout', { method: 'POST', headers: { Origin: 'https://gitpushups.com' } }));
   assert.equal(logout.cookies.get(auth.SESSION_COOKIE).maxAge, 0);
+});
+
+
+test('all five schedules survive OAuth; unrecognized values fall back to daily', async t => {
+  t.mock.method(globalThis, 'fetch', async (_, options) => Response.json(options?.method === 'POST' ? { token: 'signed.session.token', expiresIn: auth.SESSION_SECONDS } : settings));
+  for (const selected of ['daily', '8h', '4h', '1h', '15m', '2h', 'https://example.com']) {
+    const expected = ['daily', '8h', '4h', '1h', '15m'].includes(selected) ? selected : 'daily';
+    const start = await auth.startLogin(req(`/auth/login?frequency=${encodeURIComponent(selected)}`));
+    const cookie = start.cookies.get(auth.FLOW_COOKIE).value;
+    const flow = JSON.parse(Buffer.from(cookie, 'base64url').toString());
+    assert.equal(flow.frequency, expected);
+    const finish = await auth.finishLogin(req(`/auth/callback?code=test&state=${flow.state}`, cookie));
+    assert.equal(finish.headers.get('location'), `https://gitpushups.com/?welcome=1&frequency=${expected}`);
+    const cancelled = await auth.finishLogin(req('/auth/callback?error=access_denied', cookie));
+    assert.equal(cancelled.headers.get('location'), `https://gitpushups.com/?signin=cancelled&frequency=${expected}`);
+    assert.equal(cancelled.cookies.get(auth.SESSION_COOKIE), undefined);
+  }
 });

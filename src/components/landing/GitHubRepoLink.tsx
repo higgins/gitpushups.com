@@ -23,7 +23,7 @@ export async function GitHubRepoLink() {
   const stars = await getStarCount()
   return <a className="github-repo-link" href={REPOSITORY_URL} target="_blank" rel="noopener noreferrer" aria-label={`GitPushups on GitHub${stars === null ? '' : `, ${stars.toLocaleString('en-US')} stars`} (opens in a new tab)`}>
     <Github size={21} aria-hidden="true" />
-    <span>GitHub</span>
+    <span className="github-repo-label">GitHub</span>
     <span className="github-repo-stars"><Star size={15} aria-hidden="true" />{stars === null ? 'Star' : stars.toLocaleString('en-US')}</span>
   </a>
 }

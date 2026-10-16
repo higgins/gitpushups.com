@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useId, useRef } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
 import NextImage from 'next/image'
 import { PUSHUP_FREQUENCIES, type PushupFrequency } from '@/lib/installation'
 
@@ -80,14 +80,26 @@ function MascotCanvas({ asset, rate = 1, bounce = 0, tilt = false, label }: {
 }
 
 export function BeforeAfterPreview({ frequency }: { frequency: PushupFrequency }) {
-  const pose = trainingPoses[frequency.id]
+  const [loadedPoses, setLoadedPoses] = useState<Partial<Record<PushupFrequency['id'], boolean>>>({})
+  const [visiblePose, setVisiblePose] = useState(frequency.id)
+  useEffect(() => {
+    if (loadedPoses[frequency.id]) setVisiblePose(frequency.id)
+  }, [frequency.id, loadedPoses])
+
   return <div className="before-after">
     <figure><MascotCanvas asset="green" rate={.7} label="Before: the sad green character" /><figcaption>Before</figcaption></figure>
-    <figure>
-      <picture key={pose.file}>
-        <source media="(prefers-reduced-motion: reduce)" srcSet={`/mascot/training/${pose.file}-still.webp`} />
-        <NextImage className="training-pose" src={`/mascot/training/${pose.file}.gif`} alt={`After: ${pose.label}.`} width={1124} height={1399} unoptimized />
-      </picture>
+    <figure aria-busy={!loadedPoses[frequency.id]}>
+      <div className="training-pose-stack">
+        {PUSHUP_FREQUENCIES.map(({ id }) => {
+          const pose = trainingPoses[id]
+          // Keep every pose mounted and eager-loaded so changing the slider never
+          // replaces the image element or clears the last successfully loaded pose.
+          return <picture key={id} data-active={visiblePose === id} aria-hidden={visiblePose !== id}>
+            <source media="(prefers-reduced-motion: reduce)" srcSet={`/mascot/training/${pose.file}-still.webp`} />
+            <NextImage className="training-pose" src={`/mascot/training/${pose.file}.gif`} alt={`After: ${pose.label}.`} width={1124} height={1399} unoptimized loading="eager" onLoad={() => setLoadedPoses(current => current[id] ? current : { ...current, [id]: true })} />
+          </picture>
+        })}
+      </div>
       <figcaption>After</figcaption>
     </figure>
   </div>

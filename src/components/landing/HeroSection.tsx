@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import type { CommunityMember } from '@/lib/community'
-import { AppStoreBadge } from '@/components/AppStore'
-import { PlayStoreBadge } from '@/components/PlayStore'
+import { HeroAccountButton } from './HeroAccountButton'
 import { AnimatedCount } from './AnimatedCount'
 
 const HERO_MEMBERS: CommunityMember[] = ['higgins', 'LoganWeir', 'runtologist', 'Tristarnus', 'caplis'].map(login => ({
@@ -41,10 +40,7 @@ export function HeroSection({ total }: { total: number | null }) {
       <p className="hero-subtitle">Join developers who have built a pushup habit into their coding routine and logged <CommunityPushupTotal total={total} /> during their workday. <span className="hero-assurance">All free and no ad spam.</span></p>
       <div className="hero-actions">
         <UserAvatarStack members={HERO_MEMBERS} />
-        <div className="hero-store-buttons" aria-label="Download GitPushups">
-          <AppStoreBadge appStoreUrl="https://apps.apple.com/us/app/git-pushups/id6747657596" />
-          <PlayStoreBadge appStoreUrl="https://play.google.com/store/apps/details?id=com.gitpushups.android" />
-        </div>
+        <HeroAccountButton />
       </div>
     </div>
     <HeroAnimationSlot />

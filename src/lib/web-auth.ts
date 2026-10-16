@@ -1,5 +1,6 @@
 import { timingSafeEqual } from 'node:crypto'
 import { NextRequest, NextResponse } from 'next/server'
+import { getFrequency, PUSHUP_FREQUENCIES } from './installation'
 
 export const API_ORIGIN = process.env.GITPUSHUPS_API_URL || 'https://api.gitpushups.com'
 export const SESSION_SECONDS = 7 * 24 * 60 * 60
@@ -27,8 +28,17 @@ function privateRedirect(url: URL | string) {
   return response
 }
 
+function selectedFrequency(value: unknown) {
+  return (typeof value === 'string' && getFrequency(value) || PUSHUP_FREQUENCIES[0]).id
+}
+
 function fail(request: NextRequest, reason: string) {
-  const response = privateRedirect(new URL(`/signup?error=${reason}`, request.url))
+  let frequency: unknown = request.nextUrl.searchParams.get('frequency')
+  try {
+    const raw = request.cookies.get(FLOW_COOKIE)?.value
+    if (raw) frequency = JSON.parse(Buffer.from(raw, 'base64url').toString('utf8')).frequency
+  } catch { /* A malformed flow cannot restore a schedule. */ }
+  const response = privateRedirect(new URL(`/?signin=${reason}&frequency=${selectedFrequency(frequency)}`, request.url))
   response.cookies.set(FLOW_COOKIE, '', { ...cookieOptions, maxAge: 0 })
   return response
 }
@@ -43,7 +53,7 @@ export async function startLogin(request: NextRequest) {
     authorize.search = new URLSearchParams({ client_id: settings.clientId, redirect_uri: settings.redirectUri,
       scope: 'read:user user:email', state, code_challenge: challenge, code_challenge_method: 'S256' }).toString()
     const response = privateRedirect(authorize)
-    response.cookies.set(FLOW_COOKIE, Buffer.from(JSON.stringify({ state, verifier, createdAt: Date.now() })).toString('base64url'), { ...cookieOptions, maxAge: 600 })
+    response.cookies.set(FLOW_COOKIE, Buffer.from(JSON.stringify({ state, verifier, createdAt: Date.now(), frequency: selectedFrequency(request.nextUrl.searchParams.get('frequency')) })).toString('base64url'), { ...cookieOptions, maxAge: 600 })
     return response
   } catch { return fail(request, 'unavailable') }
 }
@@ -68,7 +78,7 @@ export async function finishLogin(request: NextRequest) {
     if (!exchange.ok) return fail(request, 'failed')
     const result = await exchange.json() as { token?: unknown; expiresIn?: unknown } | null
     if (!result || typeof result.token !== 'string' || !/^[\w-]+\.[\w-]+\.[\w-]+$/.test(result.token) || result.token.length > 3500 || result.expiresIn !== SESSION_SECONDS) return fail(request, 'failed')
-    const response = privateRedirect(new URL('/account', request.url))
+    const response = privateRedirect(new URL(`/?welcome=1&frequency=${selectedFrequency(flow.frequency)}`, request.url))
     response.cookies.set(FLOW_COOKIE, '', { ...cookieOptions, maxAge: 0 })
     response.cookies.set(SESSION_COOKIE, result.token, { ...cookieOptions, maxAge: SESSION_SECONDS })
     return response

@@ -1,7 +1,8 @@
 import { AccordionItem } from "@/components/ui/accordion"
+import Link from 'next/link'
 
 export function FaqItems({ landing = false }: { landing?: boolean }) {
-  return <div className="divide-y">
+  return <div className="faq-items">
           {!landing && <> <AccordionItem title="Wait...what?">This is a habit stacking tool. You are already coding, add this to your routine and you’ll get stronger.</AccordionItem> </>}
           <AccordionItem title="Why pushups?">You can do them anywhere, with no equipment and they are great for you.</AccordionItem>
           {!landing && <> <AccordionItem title="Is it free?">Yes. All features are free, with no subscription required.</AccordionItem> </>}
@@ -37,6 +38,9 @@ export function FaqItems({ landing = false }: { landing?: boolean }) {
               <div>Open the mobile app, view your profile and click the &quot;delete my account&quot; button. This cannot be undone.</div><br />
               <div>You’ll lose the memories...but those gains are yours forever.</div>
             </>
+          </AccordionItem>
+          <AccordionItem title="How can I support this project?">
+            GitPushups is free forever, and your support is always appreciated. Visit the <Link className="font-bold underline underline-offset-4" href="/support">support page</Link> to learn more.
           </AccordionItem>
           <AccordionItem title="Who made this?" id="who-made-this">
             <>

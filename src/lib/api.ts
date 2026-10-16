@@ -28,7 +28,7 @@ export async function getUserStatus(
   localDate?: string
 ): Promise<UserStatus | null> {
   try {
-    const url = new URL(`${API_BASE_URL}/user/${username}`)
+    const url = new URL(`${API_BASE_URL}/user/${encodeURIComponent(username)}`)
     if (localDate) {
       url.searchParams.set('local_date', localDate)
     }
@@ -43,7 +43,8 @@ export async function getUserStatus(
       throw new Error('Failed to fetch user status')
     }
 
-    return await response.json()
+    const data = await response.json() as UserStatus | null
+    return typeof data?.user?.username === 'string' && typeof data.didPushupsToday === 'boolean' ? data : null
   } catch (error) {
     console.error('Error fetching user status:', error)
     return null

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { StepNumber } from './StepNumber'
 
 const reasons = [
   {
@@ -22,9 +23,7 @@ export function WhyItWorksSection() {
       <ol className="reasons-grid" role="list">
         {reasons.map((reason, index) => <li className="reason" key={reason.title}>
           <h3>
-            <svg className="reason-number" viewBox="0 0 80 90" aria-hidden="true" focusable="false">
-              <text x="8" y="75" strokeLinejoin="round">{index + 1}</text>
-            </svg>
+            <StepNumber number={index + 1} />
             <span>{reason.title}</span>
           </h3>
           <p>{reason.text}</p>
