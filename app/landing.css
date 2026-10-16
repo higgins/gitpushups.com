@@ -35,6 +35,34 @@ h2.page-heading { font-size: clamp(29px, 3.2vw, 39px); }
 .avatar-stack li { margin-left: -28px; transition: transform .15s; }
 .avatar-stack li:hover, .avatar-stack li:focus-within { transform: translateY(-4px); z-index: 1; }
 .avatar-stack img { width: 48px; height: 48px; border: 3px solid var(--paper); outline: 1px solid #d6c3ae; border-radius: 50%; background: #e6dccc; }
+.hero-community { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, .65fr) minmax(0, 1.75fr); gap: 36px; align-items: start; padding-top: 18px; }
+.hero-community-members, .hero-community-invites { display: flex; flex-direction: column; align-items: center; min-width: 0; }
+.hero-community-members > .avatar-stack { min-height: 88px; padding-top: 4px; }
+.hero-community-caption { position: relative; max-width: 476px; margin: 32px 0 0; padding-left: 88px; color: var(--muted-ink); font-size: 14px; line-height: 1.55; }
+.hero-community-caption strong { font-weight: 650; color: var(--ink); }
+/* The tail sits eight pixels before the caption, centered on its first line. */
+.hero-community-arrow { position: absolute; left: 0; top: calc(.775em - 84px); width: 112px; height: 96px; color: #855137; pointer-events: none; }
+.hero-community-invites .hero-community-caption { margin-top: 48px; padding-left: 68px; }
+.hero-community-invites .hero-community-arrow { top: calc(.775em - 63px); width: 84px; height: 72px; }
+.hero-community-invitation { display: block; margin-top: 2px; font-size: 12px; }
+.hero-invite-list { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 10px; width: 100%; margin: 0; padding: 0; list-style: none; }
+.hero-invite-list a { display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 0; text-align: center; font-size: 11px; line-height: 1.35; border-radius: 4px; }
+.hero-invite-list img { display: block; flex-shrink: 0; width: 48px; height: 48px; border-radius: 50%; border: 3px solid var(--paper); outline: 1px dashed #c5b7a8; background: #e6dccc; object-fit: cover; filter: grayscale(1); transition: filter .15s, transform .15s; }
+.hero-invite-list span { min-height: 30px; }
+.hero-invite-list a:hover img, .hero-invite-list a:focus-visible img { filter: grayscale(0); transform: translateY(-3px); }
+.hero-invite-list a:hover span { text-decoration: underline; text-underline-offset: 3px; }
+@media (min-width: 681px) and (max-width: 1100px) {
+  .hero-community { grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); }
+  .hero-invite-list { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px 12px; }
+}
+@media (max-width: 680px) {
+  .hero-community { grid-template-columns: minmax(0, 1fr); gap: 34px; width: 100%; padding-top: 14px; }
+  .hero-community-members > .avatar-stack { min-height: 72px; }
+  .hero-community-caption { max-width: 290px; margin-top: 40px; padding-left: 78px; font-size: 13px; }
+  .hero-community-arrow { top: calc(.775em - 73.5px); width: 98px; height: 84px; }
+  .hero-invite-list { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px 8px; max-width: 430px; }
+  .hero-invite-list img { width: 44px; height: 44px; }
+}
 .installation-section { display: grid; grid-template-areas: "preview setup"; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); align-items: start; overflow-anchor: none; gap: 50px; padding-block: 44px; }
 .section-intro { font-size: 16px; line-height: 1.6; margin-top: 12px; }
 .installation-copy { grid-area: setup; min-width: 0; }
@@ -299,7 +327,7 @@ h2.page-heading { font-size: clamp(29px, 3.2vw, 39px); }
   .account-summary form { margin-left: 0; }
 }
 @media (max-width: 600px) {
-  .hero-section { display: flex; min-height: max(500px, calc(100svh - 174px)); padding-block: 36px; }
+  .hero-section { display: flex; flex-direction: column; align-items: stretch; min-height: max(500px, calc(100svh - 174px)); padding-block: 36px; }
   .hero-animation-slot { display: none; }
   .hero-headline { font-size: clamp(39px, 9.5vw, 54px); }
   .hero-total { font-size: 26px; }
