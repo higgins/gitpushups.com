@@ -1,0 +1,65 @@
+{
+  "description": "User-selected GitHub profiles for the landing page preview. Rankings and rep counts are illustrative.",
+  "sources": [
+    {
+      "login": "caplis",
+      "profile": "https://github.com/caplis",
+      "avatar": "https://avatars.githubusercontent.com/u/272?v=4&s=96"
+    },
+    {
+      "login": "higgins",
+      "profile": "https://github.com/higgins",
+      "avatar": "https://avatars.githubusercontent.com/u/876147?v=4&s=96"
+    },
+    {
+      "login": "LoganWeir",
+      "profile": "https://github.com/LoganWeir",
+      "avatar": "https://avatars.githubusercontent.com/u/4625568?v=4&s=96"
+    },
+    {
+      "login": "shinjonathan",
+      "profile": "https://github.com/shinjonathan",
+      "avatar": "https://avatars.githubusercontent.com/u/19783722?v=4&s=96"
+    },
+    {
+      "login": "Cronin",
+      "profile": "https://github.com/Cronin",
+      "avatar": "https://avatars.githubusercontent.com/u/58665249?v=4&s=96"
+    },
+    {
+      "login": "torvalds",
+      "profile": "https://github.com/torvalds",
+      "avatar": "https://avatars.githubusercontent.com/u/1024025?v=4&s=96"
+    },
+    {
+      "login": "karpathy",
+      "profile": "https://github.com/karpathy",
+      "avatar": "https://avatars.githubusercontent.com/u/241138?v=4&s=96"
+    },
+    {
+      "login": "gaearon",
+      "profile": "https://github.com/gaearon",
+      "avatar": "https://avatars.githubusercontent.com/u/810438?v=4&s=96"
+    },
+    {
+      "login": "sindresorhus",
+      "profile": "https://github.com/sindresorhus",
+      "avatar": "https://avatars.githubusercontent.com/u/170270?v=4&s=96"
+    },
+    {
+      "name": "John Carmack",
+      "file": "john-carmack.webp",
+      "source": "https://commons.wikimedia.org/wiki/File:John_Carmack_2025.jpg",
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/2/2d/John_Carmack_2025.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "author": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:RoboSabs&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:RoboSabs (page does not exist)\">RoboSabs</a>",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "modification": "Resized and converted to WebP; circular presentation uses CSS."
+    },
+    {
+      "login": "cassidoo",
+      "profile": "https://github.com/cassidoo",
+      "avatar": "https://avatars.githubusercontent.com/u/1454517?v=4&s=96"
+    }
+  ]
+}

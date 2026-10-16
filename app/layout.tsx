@@ -1,7 +1,9 @@
 import './globals.css'
+import './landing.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { MarqueeGifs } from '@/components/PushupsMarquee';
+import { SiteHeader } from '@/components/landing/SiteHeader'
+import { SiteFooter } from '@/components/landing/SiteFooter'
 import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] })
@@ -52,8 +54,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             referrerPolicy="no-referrer-when-downgrade"
           />
         </noscript>
-        <MarqueeGifs />
+        <SiteHeader />
         {children}
+        <SiteFooter />
       </body>
     </html>
   )

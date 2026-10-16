@@ -9,7 +9,7 @@ type AccordionItemProps = {
 }
 
 export function AccordionItem({ title, children, id }: AccordionItemProps) {
-  const [open, setOpen] = React.useState(true)
+  const [open, setOpen] = React.useState(false)
   return (
     <div id={id} className="border-b">
       <button

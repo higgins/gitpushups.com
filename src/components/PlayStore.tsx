@@ -17,7 +17,7 @@ export const PlayStoreBadge: React.FC<PlayStoreBadgeProps> = ({
       <img
         src="/googlePlayBadge.png"
         alt={alt}
-        style={{ height: '48px', marginTop: '10px' }}
+        style={{ height: '48px', width: 'auto' }}
       />
     </a>
   );

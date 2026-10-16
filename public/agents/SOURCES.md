@@ -1,0 +1,1 @@
+Brand marks from https://github.com/lobehub/lobe-icons/tree/master/packages/static-svg/icons (downloaded 2026-10-15). See LICENSE. Claude, Cursor, GitHub Copilot, Devin, and Codex marks belong to their respective owners.
