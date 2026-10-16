@@ -15,7 +15,6 @@ export function AgentInstallPrompt({ frequency, username }: { frequency: PushupF
       <p>{prompt}</p>
       <CopyButton text={prompt} label="Copy agent installation prompt" />
     </div>
-    <a className="agent-instructions-link" href={`/agent-setup?frequency=${frequency.id}`}>View setup instructions →</a>
   </div>
 }
 
