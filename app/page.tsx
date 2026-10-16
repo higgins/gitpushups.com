@@ -1,4 +1,5 @@
 import { Buffer } from 'buffer'
+import type { Metadata } from 'next'
 import { HeroSection } from '@/components/landing/HeroSection'
 import { InstallationSection } from '@/components/landing/InstallationSection'
 import { WhyItWorksSection } from '@/components/landing/WhyItWorksSection'
@@ -9,6 +10,10 @@ import { getCommunityStats } from '@/lib/community'
 import { getCurrentWebUser } from '@/lib/current-web-user'
 import { getFrequency, PUSHUP_FREQUENCIES } from '@/lib/installation'
 import { LandingExperience } from '@/components/landing/LandingExperience'
+
+export const metadata: Metadata = {
+  alternates: { canonical: 'https://gitpushups.com' },
+}
 
 export default async function LandingPage({ searchParams }: { searchParams?: { shareId?: string; frequency?: string; welcome?: string; signin?: string } }) {
   if (searchParams?.shareId) {
@@ -28,7 +33,7 @@ export default async function LandingPage({ searchParams }: { searchParams?: { s
     <InstallationSection />
     <WhyItWorksSection />
     <ProgressSection />
-    <CommunitySection />
+    <CommunitySection latestUpdate={{ title: 'The Monthly Press: October 2026', href: '/monthly-press/october-2026', image: '/newsletter-assets/2026-10/assets/banner-halloween.png' }} />
     <FaqSection />
   </main>
   </LandingExperience>

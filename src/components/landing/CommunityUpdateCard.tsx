@@ -4,12 +4,12 @@ import { ArrowUpRight } from 'lucide-react'
 export interface CommunityUpdate {
   title: string
   href: string
+  image?: string
 }
 
 export function CommunityUpdateCard({ update }: { update?: CommunityUpdate }) {
-  // Until a post is published, keep the placeholder linked to the existing blog.
   return <Link className="community-update-card" href={update?.href ?? '/monthly-press'}>
-    <div className="community-update-image" aria-hidden="true" />
+    <div className="community-update-image" aria-hidden="true">{update?.image && <img src={update.image} alt="" />}</div>
     <div className="community-update-copy">
       <p className="community-update-label">Latest community update</p>
       <h3>{update?.title ?? 'Our next update is on its way.'}</h3>

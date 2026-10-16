@@ -5,6 +5,7 @@ import { getCurrentWebUser } from '@/lib/current-web-user'
 import { getUserContributions } from '@/lib/user-contributions'
 import { PUSHUP_FREQUENCIES } from '@/lib/installation'
 import { notFound } from 'next/navigation'
+import { profileSocialMetadata } from '@/lib/profile-social'
 interface Params {
   params: {
     username: string
@@ -12,6 +13,10 @@ interface Params {
   searchParams: { [key: string]: string | string[] | undefined }
 }
 export const dynamic = 'force-dynamic'
+
+export function generateMetadata({ params }: Params) {
+  return profileSocialMetadata(params.username)
+}
 
 export default async function UserPage({ params, searchParams }: Params) {
   const d = typeof searchParams.d === 'string' ? searchParams.d : undefined

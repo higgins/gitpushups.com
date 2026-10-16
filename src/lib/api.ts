@@ -33,7 +33,7 @@ export async function getUserStatus(
       url.searchParams.set('local_date', localDate)
     }
     const response = await fetch(url.toString(), {
-      next: { revalidate: 60 }
+      next: { revalidate: 60 }, signal: AbortSignal.timeout(8000)
     })
 
     if (!response.ok) {

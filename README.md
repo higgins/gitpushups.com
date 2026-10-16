@@ -61,6 +61,39 @@ Pull requests are welcome if they fix broken content, typos, or other issues in 
 
 ---
 
+## Profile link previews
+
+Sharing the ordinary `https://gitpushups.com/@username` profile URL produces
+personalized Open Graph and Twitter metadata. `/social/profile/username?v=5`
+renders a 1200×630 PNG with the mascot and locked laptop on the right and a
+decorative contribution grid across the background. A centered stack in the
+open space on the left shows the GitHub avatar, “@username”, “N pushups”,
+“in YEAR”, and the GitPushups logo. Each text line fits its available width
+without wrapping or truncation. There is no separate sharing flow, and the
+design never indicates whether the user did their pushups today.
+
+The annual total uses real contribution data through the profile API's local
+date. The background grid is generic artwork, not the user's actual activity.
+Missing contribution data produces neutral copy without a number; missing
+avatars use the username's first letter. Only GitHub's avatar host is fetched,
+with time and size bounds and no followed redirects.
+
+The existing Cloudflare deployment's Cache API stores rendered cards for
+one day (86,400 seconds) per normalized username/template version in each
+data center, including cards with a missing avatar or contribution data.
+Cache keys ignore cookies and arbitrary query parameters. Social networks maintain
+their own caches: these settings cannot force an already-posted preview to
+refresh. The rendered card identifies the year of the total.
+
+The background, logo and font are served through the existing `ASSETS` binding.
+`public/social/fonts/BarlowCondensed-Bold.ttf` comes from
+[Google Fonts](https://github.com/google/fonts/tree/main/ofl/barlowcondensed)
+under the adjacent `OFL.txt` license. No paid image service or new binding is
+required. Change `PROFILE_CARD_VERSION` when revising the layout; also change
+the template filename when replacing its artwork. Test with `npm run test:social`, then an OpenNext build
+and local Wrangler preview; image rendering must be exercised in Workers,
+not just Node.
+
 ## License
 This project is licensed under the MIT Non-Commercial License (MIT-NC).
 You may use, copy, and modify the code for personal or educational purposes,

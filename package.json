@@ -12,6 +12,7 @@
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "start": "next start",
     "test:proxy": "node --test tests/interval-proxy.cjs",
+    "test:social": "node --test tests/profile-social.cjs tests/contributions.cjs",
     "test:landing": "node --test tests/landing.cjs tests/web-auth.cjs"
   },
   "dependencies": {

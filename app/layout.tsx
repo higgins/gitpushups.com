@@ -9,14 +9,19 @@ import Script from 'next/script';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://gitpushups.com'),
   title: "Git Pushups: do pushups or we block your code",
-  description: 'A fitness tool for developers',
+  description: 'A free Git hook that blocks your commits until you log your daily pushups. Build a fitness habit while you code with Git Pushups.',
   openGraph: {
+    type: 'website',
+    siteName: 'Git Pushups',
     images: [
       {
-        url: 'https://gitpushups.com/ogUnfurl.png',
+        url: 'https://gitpushups.com/social/no-pushups-no-code-og-v3.png',
         width: 1200,
         height: 630,
+        type: 'image/png',
+        alt: 'No pushups? No code. The Git Pushups mascot guards a locked laptop.',
       },
     ],
   },
@@ -24,9 +29,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     images: [
       {
-        url: 'https://gitpushups.com/twitterUnfurl.png',
+        url: 'https://gitpushups.com/social/no-pushups-no-code-x-v3.png',
         width: 1200,
-        height: 675,
+        height: 600,
+        alt: 'No pushups? No code. The Git Pushups mascot guards a locked laptop.',
       },
     ],
   },
