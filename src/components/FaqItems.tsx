@@ -1,5 +1,5 @@
 import { AccordionItem } from "@/components/ui/accordion"
-import Link from 'next/link'
+import { SUPPORT_PAYMENT_URL } from '@/lib/support'
 
 export function FaqItems({ landing = false }: { landing?: boolean }) {
   return <div className="faq-items">
@@ -40,7 +40,7 @@ export function FaqItems({ landing = false }: { landing?: boolean }) {
             </>
           </AccordionItem>
           <AccordionItem title="How can I support this project?">
-            GitPushups is free forever, and your support is always appreciated. Visit the <Link className="font-bold underline underline-offset-4" href="/support">support page</Link> to learn more.
+            Tell your friends or <a className="font-bold underline underline-offset-4" href={SUPPORT_PAYMENT_URL}>send me a tip</a>
           </AccordionItem>
           <AccordionItem title="Who made this?" id="who-made-this">
             <>

@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import Link from 'next/link'
+import { SUPPORT_PAYMENT_URL } from '@/lib/support'
 import { X } from 'lucide-react'
 import { StepNumber } from './StepNumber'
 import { InstallationTabs } from './InstallationSection'
@@ -68,7 +68,7 @@ export function NextStepsModal({ open, onClose, error }: { open: boolean; onClos
       </ol>
       <footer className="next-steps-thanks">
         <a href="https://github.com/higgins" aria-label="Justin on GitHub"><img src="https://github.com/higgins.png?s=96" alt="Justin (@higgins)" width={48} height={48} /></a>
-        <div><p><strong>Thanks for being here. — Justin</strong></p><p>Found a bug or have an idea? <a href="https://github.com/higgins/gitpushups.com/issues">Ping me.</a> GitPushups is free forever, and <Link href="/support">your support is always appreciated</Link>.</p></div>
+        <div><p><strong>Thanks for being here. — Justin</strong></p><p>Found a bug or have an idea? <a href="https://github.com/higgins/gitpushups.com/issues">Ping me.</a> GitPushups is free forever, and <a href={SUPPORT_PAYMENT_URL}>your support is always appreciated</a>.</p></div>
       </footer>
     </> : <div className="next-steps-error">
       <h2 id="next-steps-title" className="page-heading">Let’s get you signed in.</h2>

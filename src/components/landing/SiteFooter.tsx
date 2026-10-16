@@ -3,6 +3,7 @@ import { AppStoreBadge } from '@/components/AppStore'
 import { PlayStoreBadge } from '@/components/PlayStore'
 import { APP_STORE_URL, PLAY_STORE_URL } from '@/lib/app-stores'
 import { getCurrentWebUser } from '@/lib/current-web-user'
+import { SUPPORT_PAYMENT_URL } from '@/lib/support'
 
 export async function SiteFooter() {
   const { user } = await getCurrentWebUser()
@@ -18,6 +19,7 @@ export async function SiteFooter() {
       <nav aria-label="Footer">
         <a href="https://github.com/higgins/gitpushups.com">GitHub</a>
         <Link href="/faq">FAQ</Link>
+        <a href={SUPPORT_PAYMENT_URL}>Support This Project</a>
         <Link href="/privacy">Privacy</Link>
         <Link href="/terms">Terms</Link>
         {user && <form action="/auth/logout" method="post">
